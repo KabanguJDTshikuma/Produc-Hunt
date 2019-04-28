@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+{% if error %}
+{{ error }}
+<br>
+<br>
+{% endif %}
+
+<h1>Sign Up!</h1>
+
+<form action="{% url 'signup' %}" method="post">
+    {% csrf_token %}
+    Username: <br>
+    <input type="text" name="username" id="">
+    <br>
+    Password:
+    <br>
+    <input type="password" name="password1" id="">
+    <br>
+    Confirm Password:
+    <br>
+    <input type="password" name="password2" id="">
+    <br>
+    <br>
+    <input type="submit" value="Sign Up" class="btn btn-primary">
+    <!-- google sign in button -->
+    <br>
+    <br>
+    <div class="g-signin2" data-onsuccess="onSignIn">
+        <input type="submit" value="Sign Up" class="btn btn-primary">
+    </div>
+
+</form>
+
+{%  endblock %}
